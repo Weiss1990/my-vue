@@ -2,7 +2,7 @@
     <div>
         <div v-if="data">
             <h3>Name:{{data.name}}</h3>
-            <p>Attempts: {{data.attempts}}</p>
+            <p>{{attemptsFormatted}}</p>
         </div>
         <div v-if="!data">
             please select any data item from list above!
@@ -15,6 +15,11 @@
         name: "Description",
         props: {
             data: Object
+        },
+        computed: {
+            attemptsFormatted: function() {
+                return this.data.attempts + ' Attempts'
+            }
         }
     }
 </script>
